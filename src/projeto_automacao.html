@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criação de Automações - Giovanni Alves</title>
+	
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGSJJ6R80P"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-WGSJJ6R80P');
+	</script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #ffffff;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: #111;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-right: 2px solid #1f1f1f;
+        }
+
+        .sidebar a {
+            color: #4db8ff;
+            text-decoration: none;
+            padding: 8px 0;
+            display: block;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        h1, h2 {
+            margin-top: 0;
+        }
+
+        .automation {
+            background: #001f3f;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.45);
+        }
+
+        .automation h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .automation a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 14px;
+            background: #004a99;
+            border-radius: 8px;
+            color: #4db8ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .automation a:hover {
+            background: #0066cc;
+        }
+
+        .cert-grid img {
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="../index.html">🏠 Voltar ao Portfólio</a>
+        <a href="#automacoes">Criação de Automações</a>
+
+        <h2>Certificados</h2>
+        <ul style="list-style:none; padding:0; margin-top:10px; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
+            <li><img src="../img/cehv13.webp" alt="CEH v13" width="80"></li>
+            <li><img src="../img/ceh_practical.png" alt="CEH Practical" width="80"></li>
+            <li><img src="../img/ceh_master.png" alt="CEH Master" width="80"></li>
+            <li><img src="../img/securityplus.png" alt="Security+" width="80"></li>
+        </ul>
+
+        <h2>Sobre Mim</h2>
+        <p style="font-size:14px; line-height:1.4;">
+            Cyber Security Consultant | CSIRT | SOC | MDR | CEH Master | Security+<br><br>
+            Email: giovanni33316@gmail.com
+        </p>
+    </div>
+
+    <div class="content">
+        <h1>Criação de Automações</h1>
+        <p>Abaixo estão automações, scripts e ferramentas desenvolvidas para segurança, governança, hunting e eficiência operacional.</p>
+
+        <section id="automacoes">
+
+            <div class="automation">
+                <h3>⚙️ Automação de Non-Compliance de Software</h3>
+                <p>Ferramenta que coleta inventário, detecta softwares proibidos e gera relatórios automáticos usados pela liderança para tomar decisões estratégicas.</p>
+                <a href="../pdfs/relatorio_cyber_hygiene_projeto.pdf">📄 Ver Documentação</a>
+                <a href="#">💻 Código</a>
+            </div>
+
+            <div class="automation">
+                <h3>⚙️ Gerador Automático de Relatórios de Incidentes</h3>
+                <p>Pipeline que coleta IOC, eventos correlacionados, host forensics e exporta um relatório PDF padronizado para o time de incidentes.</p>
+                <a href="#">📄 Ver Exemplo</a>
+                <a href="#">💻 GitHub</a>
+            </div>
+
+            <div class="automation">
+                <h3>⚙️ Coletor Forense Automático (Windows)</h3>
+                <p>Script que coleta artefatos críticos: rede, processos, registro, logs, histórico, tasks, WMI, serviços e IOC scan.</p>
+                <a href="../img/forensicExec.png">📄 Manual</a>
+                <a href="#">💻 Código</a>
+            </div>
+
+            <div class="automation">
+                <h3>⚙️ Automação de Shadow IT Detection</h3>
+                <p>Detecção automática de aplicações não autorizadas, uso suspeito da infraestrutura e inventário em tempo real.</p>
+                <a href="#">📄 Documentação</a>
+                <a href="#">💻 Código</a>
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+</html>
