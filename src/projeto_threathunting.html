@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cases de Investigação - Giovanni Alves</title>
+    <title>Hunting & Detection - Giovanni Alves</title>
 	
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGSJJ6R80P"></script>
@@ -34,10 +34,6 @@
             border-right: 2px solid #1f1f1f;
         }
 
-        .sidebar h2 {
-            margin-top: 0;
-        }
-
         .sidebar a {
             color: #4db8ff;
             text-decoration: none;
@@ -55,7 +51,7 @@
             margin-top: 0;
         }
 
-        .case {
+        .hunt {
             background: #001f3f;
             padding: 25px;
             border-radius: 12px;
@@ -63,12 +59,12 @@
             box-shadow: 0 0 12px rgba(0,0,0,0.45);
         }
 
-        .case h3 {
+        .hunt h3 {
             margin-top: 0;
             margin-bottom: 10px;
         }
 
-        .case a {
+        .hunt a {
             display: inline-block;
             margin-top: 15px;
             padding: 10px 14px;
@@ -79,7 +75,7 @@
             font-weight: bold;
         }
 
-        .case a:hover {
+        .hunt a:hover {
             background: #0066cc;
         }
 
@@ -94,10 +90,10 @@
     <div class="sidebar">
         <h2>Menu</h2>
         <a href="../index.html">🏠 Voltar ao Portfólio</a>
-        <a href="#cases">Cases de Investigação</a>
+        <a href="#hunting">Hunting & Detection</a>
 
         <h2>Certificados</h2>
-        <ul style="list-style:none; padding:0; margin-top:10px; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;" class="cert-grid">
+        <ul style="list-style:none; padding:0; margin-top:10px; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;">
             <li><img src="../img/cehv13.webp" alt="CEH v13" width="80"></li>
             <li><img src="../img/ceh_practical.png" alt="CEH Practical" width="80"></li>
             <li><img src="../img/ceh_master.png" alt="CEH Master" width="80"></li>
@@ -112,30 +108,37 @@
     </div>
 
     <div class="content">
-        <h1>Cases de Investigação</h1>
-        <p>Aqui estão alguns estudos reais envolvendo detecção, análise forense e resposta a incidentes — cada case inclui o PDF original para consulta.</p>
+        <h1>Hunting & Detection</h1>
+        <p>Abaixo estão casos reais, metodologias e detecções criadas para identificar atividades maliciosas, comportamento atípico e ameaças avançadas.</p>
 
-        <section id="cases">
+        <section id="hunting">
 
-            <!-- CASE 1 -->
-            <div class="case">
-                <h3>📌 Detecção de Malware Bancário Metamorfo</h3>
-                <p>Processo completo de identificação inicial, correlação de eventos, análise de endpoint e confirmação de atividade maliciosa envolvendo o malware Metamorfo.</p>
-                <a href="../pdfs/Metamorfo.pdf" target="_blank">📄 Abrir PDF</a>
+            <div class="hunt">
+                <h3>🎯 Threat Hunting de Atividade Persistente (APT-style)</h3>
+                <p>Caça manual e automatizada focada em persistência discreta, uso de LOLBins, IFEO, anomalias em WMI e serviços suspeitos.</p>
+                <a href="#">📄 Documentação</a>
+                <a href="#">🔎 Ver Técnicas</a>
             </div>
 
-            <!-- CASE 2 -->
-            <div class="case">
-                <h3>📌 RAT executado via phishing</h3>
-                <p>Investigação de execução remota de RAT após download de arquivo malicioso enviado por spear phishing.</p>
-                <a href="../pdfs/rat.pdf" target="_blank">📄 Abrir PDF</a>
+            <div class="hunt">
+                <h3>🎯 Deteção de Túnel Reverso (Ngrok, Cloudflared, LocalXpose)</h3>
+                <p>Criação de casos de uso para detectar beaconing, baixos volumes persistentes e fingerprints de túneis reversos usados por atacante.</p>
+                <a href="#">📄 Abrir Caso de Uso</a>
+                <a href="#">💻 Sigma Rule</a>
             </div>
 
-            <!-- CASE 3 -->
-            <div class="case">
-                <h3>📌 Ataque de FakeCaptcha (Drive-by Compromise)</h3>
-                <p>Análise completa de acesso irregular, exploração via fake captcha e cadeia de execução que levou ao comprometimento inicial.</p>
-                <a href="../pdfs/FakeCaptcha.pdf" target="_blank">📄 Abrir PDF</a>
+            <div class="hunt">
+                <h3>🎯 Identificação de Credential Dumping</h3>
+                <p>Regras e correlações para Mimikatz, LSASS access patterns, MiniDumpWriteDump e anomalias com PPL Bypass.</p>
+                <a href="#">📄 Ver Documento</a>
+                <a href="#">💻 YARA / Sigma</a>
+            </div>
+
+            <div class="hunt">
+                <h3>🎯 Detection Engineering para Movimentação Lateral</h3>
+                <p>Detecções envolvendo SMB abuse, remote service creation, WinRM misuse, PsExec e execuções remotas suspeitas.</p>
+                <a href="#">📄 Guia Detalhado</a>
+                <a href="#">💻 Regras & Scripts</a>
             </div>
 
         </section>
