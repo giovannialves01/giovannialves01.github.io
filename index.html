@@ -1,255 +1,220 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-	<link rel="canonical" href="https://gsasec.com.br/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giovanni Alves - Cyber Security</title>
-	
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGSJJ6R80P"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-WGSJJ6R80P');
-	</script>
-
+    <title>GSA Security | Cyber Defense</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root { color-scheme: dark; }
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            display: flex;
-            background: #0a0a0a;
-            color: white;
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
         }
-
-        /* ----- SIDEBAR ----- */
-        .sidebar {
-            width: 260px;
-            background: #111;
-            padding: 20px;
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        .scanline::after {
+            content: "";
             position: fixed;
-            top: 0;
-            bottom: 0;
-            overflow-y: auto; /* agora acompanha a rolagem */
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, transparent, rgba(16, 185, 129, 0.05), transparent);
+            z-index: 50;
+            pointer-events: none;
+            animation: scanline 6s linear infinite;
         }
-
-        .sidebar h2 {
-            margin-top: 0;
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            background-color: rgba(16, 185, 129, 0.2);
         }
-
-        .sidebar img {
-            display: block;
-            margin-bottom: 15px;
-            border-radius: 10px;
-        }
-
-        .sidebar a {
-            color: #4fa3ff;
-            text-decoration: none;
-        }
-
-        /* ----- MAIN CONTENT ----- */
-        .main {
-            margin-left: 260px;
-            padding: 40px;
-            width: calc(100% - 260px);
-        }
-
-        h1, h2 {
-            color: #4fa3ff;
-        }
-
-        p {
-            line-height: 1.6;
-        }
-
-        /* ----- GRID DE CARDS ----- */
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-
-        .card {
-            background: #141414;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            transition: 0.2s;
-            border: 1px solid #222;
-        }
-
-        .card:hover {
-            transform: scale(1.03);
-            border-color: #4fa3ff;
-            cursor: pointer;
-        }
-
-        .card img {
-            width: 60px;
-            margin-bottom: 10px;
-        }
-
-        /* CERTIFICADOS com 2 colunas */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .cert-grid img {
-            width: 80px;
-            margin: auto;
-            display: block;
-        }
-
     </style>
+
 </head>
-<body>
+<body class="scanline overflow-x-hidden">
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
-        <h2>Giovanni Alves</h2>
-		
-		<p style="font-size:14px; line-height:1.4;">Cyber Security Consultant | Incident Response (DFIR) & Threat Hunting | CySA+, Security+, CSAP, CEH Master</p>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-[100] transition-all duration-500 bg-transparent py-8">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-[0_0_20px_rgba(16,185,129,0.2)] group-hover:scale-110 transition-transform">G</div>
+                <span class="font-mono text-xl font-bold tracking-tighter uppercase">GSA<span class="text-emerald-500">SEC</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-10 font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400">
+                <a href="index.html#incident" class="hover:text-emerald-400 transition-colors">Incidentes</a>
+                <a href="index.html#automation" class="hover:text-emerald-400 transition-colors">Automação</a>
+                <a href="src/cases.html" class="text-emerald-400 font-bold">Cases</a>
+                <a href="src/sobre.html" class="hover:text-emerald-400 transition-colors">Sobre Mim</a>
+                <a href="#contact" class="px-6 py-2 border border-emerald-500/50 rounded-full text-emerald-400 hover:bg-emerald-500/10 transition-all font-bold">Contato</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero -->
+    <header id="top" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(16,185,129,0.08)_0%,transparent_70%)]"></div>
+        <div class="container mx-auto px-6 ">
+            <div class="max-w-4xl">
+                <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-emerald-500 text-[10px] font-mono mb-10 tracking-widest uppercase animate-pulse">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                    Operações de Defesa Ativa
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold mb-10 leading-[1.05] tracking-tight">
+                    Sua infraestrutura <br />
+                    <span class="text-gradient">à prova de intrusões.</span>
+                </h1>
+                <p class="text-slate-400 text-lg md:text-xl leading-relaxed font-light">
+                    Consultoria especializada em Resposta a Incidentes, SIEM/EDR e criação de ferramentas sob medida para SecOps de alto nível.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <a href="#incident" class="bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-xl shadow-emerald-900/20">
+                        Ver Serviços
+                    </a>
+                    <a href="src/cases.html" class="glass-panel px-10 py-5 rounded-2xl font-bold border-white/10 hover:border-emerald-500/30 transition-all">
+                        Ver Investigações
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-        <h3>Contato</h3>
-        <p>Email: giovanni33316@gmail.com</p>
-        <p>LinkedIn: www.linkedin.com/in/giovanni-s-alves</a></p>
+    <!-- Services -->
+    <section class="py-32 relative bg-slate-950/50">
+        <div class="container mx-auto px-6">
+            <div class="mb-24 max-w-2xl">
+                <h2 class="text-xs font-mono text-emerald-500 uppercase tracking-[0.6em] mb-4">Especialidades</h2>
+                <h3 class="text-4xl md:text-5xl font-bold leading-tight">Soluções modulares para <span class="text-emerald-500 italic">SecOps.</span></h3>
+            </div>
 
-        <h3>Certificados</h3>
-        <div class="cert-grid">
-            <img src="./img/cehv13.webp">
-            <img src="./img/ceh_practical.png">
-            <img src="./img/ceh_master.png">
-            <img src="./img/securityplus.png">
-			<img src="./img/CSAP.png">
-            <img src="./img/cysa.png">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Incident Response -->
+                <div id="incident" class="service-card glass-panel p-8 rounded-3xl group hover:border-emerald-500/40 transition-all duration-500 relative overflow-hidden">
+                    <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 text-emerald-400 service-icon transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-emerald-400 transition-colors">Tratamento de Incidentes</h3>
+                    <p class="text-slate-400 leading-relaxed mb-10 text-sm md:text-base">
+                        Investigação completa de incidentes, incluindo análise de logs, memória, artefatos de disco e rede. Atuo em cenários de ransomware, malware avançado e intrusões.
+                    </p>
+                    <a href="#top" class="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.3em] text-slate-500 hover:text-emerald-400 transition-colors">
+                        <span class="w-8 h-[1px] bg-slate-800 transition-colors group-hover:bg-emerald-500/50"></span> Voltar ao topo
+                    </a>
+                </div>
+
+                <!-- Automation -->
+                <div id="automation" class="service-card glass-panel p-8 rounded-3xl group hover:border-emerald-500/40 transition-all duration-500 relative overflow-hidden">
+                    <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 text-emerald-400 service-icon transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-emerald-400 transition-colors">Automações & Integrações</h3>
+                    <p class="text-slate-400 leading-relaxed mb-10 text-sm md:text-base">
+                        Desenvolvimento de automações para SIEM, EDR e governança. Criação de fluxos, normalização de logs e padronização de pipelines para redução de esforço operacional.
+                    </p>
+                    <a href="#top" class="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.3em] text-slate-500 hover:text-emerald-400 transition-colors">
+                        <span class="w-8 h-[1px] bg-slate-800 transition-colors group-hover:bg-emerald-500/50"></span> Voltar ao topo
+                    </a>
+                </div>
+
+                <!-- Tools -->
+                <div id="tools" class="service-card glass-panel p-8 rounded-3xl group hover:border-emerald-500/40 transition-all duration-500 relative overflow-hidden">
+                    <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 text-emerald-400 service-icon transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-emerald-400 transition-colors">Ferramentas Técnicas</h3>
+                    <p class="text-slate-400 leading-relaxed mb-10 text-sm md:text-base">
+                        Criação de utilitários internos, ferramentas de análise de malware, scripts avançados e artefatos voltados para laboratório ofensivo e defesa cibernética.
+                    </p>
+                    <a href="#top" class="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.3em] text-slate-500 hover:text-emerald-400 transition-colors">
+                        <span class="w-8 h-[1px] bg-slate-800 transition-colors group-hover:bg-emerald-500/50"></span> Voltar ao topo
+                    </a>
+                </div>
+
+                <!-- Integration -->
+                <div id="integration" class="service-card glass-panel p-8 rounded-3xl group hover:border-emerald-500/40 transition-all duration-500 relative overflow-hidden">
+                    <div class="w-14 h-14 bg-emerald-500/10 rounded-2xl flex items-center justify-center mb-8 text-emerald-400 service-icon transition-all duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white group-hover:text-emerald-400 transition-colors">Integrações de Segurança</h3>
+                    <p class="text-slate-400 leading-relaxed mb-10 text-sm md:text-base">
+                        Instalação e configuração de ferramentas corporativas (SIEM, EDR, Servidores de Logs). Aumento da cobertura e redução de Shadow IT.
+                    </p>
+                    <a href="#top" class="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.3em] text-slate-500 hover:text-emerald-400 transition-colors">
+                        <span class="w-8 h-[1px] bg-slate-800 transition-colors group-hover:bg-emerald-500/50"></span> Voltar ao topo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+<section id="contact" class="py-32 relative overflow-hidden">
+    <div class="container mx-auto px-6">
+        <div class="glass-panel rounded-[3rem] p-1 md:p-1.5 overflow-hidden">
+            <div class="bg-[#020617] rounded-[2.9rem] p-8 md:p-20">
+                <div class="grid lg:grid-cols-2 gap-20">
+                    <div>
+                        <h2 class="text-5xl font-bold mb-8 italic uppercase tracking-tighter">
+                            Prepare for the <span class="text-emerald-500">Unexpected.</span>
+                        </h2>
+                        <p class="text-slate-400 mb-12 text-lg leading-relaxed">
+                            Precisa de suporte imediato para um incidente em curso ou deseja fortalecer sua visibilidade de segurança? Nossa unidade está pronta.
+                        </p>
+                        
+                    </div>
+
+                    <!-- Communication methods panel -->
+                    <div class="flex flex-col justify-center space-y-8 font-mono text-xs text-white">
+                        <div class="bg-slate-900/50 border border-white/5 rounded-2xl p-6">
+                            <p class="text-slate-400 mb-2">Contato por Email</p>
+                            <a href="mailto:giovanni33316@gmail.com" class="text-emerald-500 hover:underline">
+                                giovanni33316@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="bg-slate-900/50 border border-white/5 rounded-2xl p-6">
+                            <p class="text-slate-400 mb-2">Localização</p>
+                            <p>São Paulo — Atendimento Global</p>
+                        </div>
+
+                        <div class="bg-slate-900/50 border border-white/5 rounded-2xl p-6">
+                            <p class="text-slate-400 mb-2">LinkedIn</p>
+                            <a href="https://www.linkedin.com/in/giovanni-s-alves" target="_blank" class="text-emerald-500 hover:underline">
+                                https://www.linkedin.com/in/giovanni-s-alves
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- MAIN -->
-    <div class="main">
-        <h1>Sobre Mim</h1>
-
-        <p>
-            Especialista em Segurança da Informação com foco em análise, detecção e resposta a incidentes em ambientes multinacionais.
-            Tenho experiência prática identificando falhas críticas, corrigindo gaps de visibilidade em SIEM e conduzindo investigações
-            complexas envolvendo ransomware, possíveis vazamentos, hacktivismo e atividades avançadas de ameaça.
-        </p>
-        <p>
-            Desenvolvo automações que aprimoram governança e reduzem esforço operacional, incluindo relatórios inteligentes de software
-            non-compliance utilizados pela liderança para tomada de decisão. Atuo diariamente com threat hunting, análise técnica profunda,
-            correlação de eventos e identificação de vulnerabilidades e Shadow IT.
-        </p>
-        <p>
-            Trabalho orientado a impacto, precisão técnica e fortalecimento contínuo da postura de segurança dos ambientes que protejo.
-        </p>
-
-        <hr><br>
-
-        <!-- SERVICES (cada card agora tem href) -->
-        <h2>Serviços</h2>
-
-        <div class="cards">
-            <a href="./src/servicos.html#incidentes" style="text-decoration:none; color:inherit;">
-                <div class="card">
-                    <img src="./img/shield.png">
-                    <h3>Tratamento de Incidentes</h3>
-                    <p>Investigação, contenção e resposta.</p>
-                </div>
-            </a>
-
-            <a href="./src/servicos.html#automacoes" style="text-decoration:none; color:inherit;">
-                <div class="card">
-                    <img src="./img/shield.png">
-                    <h3>Automações</h3>
-                    <p>Criação de fluxos e integrações para reduzir esforço operacional.</p>
-                </div>
-            </a>
-
-            <a href="./src/servicos.html#ferramentas" style="text-decoration:none; color:inherit;">
-                <div class="card">
-                    <img src="./img/shield.png">
-                    <h3>Ferramentas & Malwares</h3>
-                    <p>Desenvolvimento de ferramentas, payloads e utilitários técnicos.</p>
-                </div>
-            </a>
-
-            <a href="./src/servicos.html#integracoes" style="text-decoration:none; color:inherit;">
-                <div class="card">
-                    <img src="./img/shield.png">
-                    <h3>Integrações de Segurança</h3>
-                    <p>Configuração de SIEM, EDR, antivírus e soluções corporativas.</p>
-                </div>
-            </a>
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-3 mb-10 opacity-40">
+                <div class="w-8 h-8 bg-emerald-600 rounded flex items-center justify-center font-bold text-sm text-white">G</div>
+                <span class="font-mono text-sm font-bold tracking-tighter uppercase">GSA<span class="text-emerald-500">SEC</span></span>
+            </div>
+            <p class="text-[10px] font-mono text-slate-600 uppercase tracking-[0.5em] mb-4">
+                &copy; 2026 GSASEC // Defesa Cibernética de Elite
+            </p>
         </div>
+    </footer>
 
-        <br><hr><br>
-
-        <!-- NOVA SEÇÃO: CASES DE USO -->
-        <h2>Cases de Uso</h2>
-
-        <div class="cards">
-            <a href="./src/incidentes.html" style="text-decoration:none; color:inherit;">
-                <div class="card">
-                    <img src="./img/shield.png">
-                    <h3>Tratamento de Incidentes</h3>
-                    <p>Casos reais envolvendo investigação, contenção e resposta.</p>
-                </div>
-            </a>
-
-            <a href="./src/case_automacoes.html" style="text-decoration:none; color:inherit;">
-                <div class="card">
-                    <img src="./img/shield.png">
-                    <h3>Criação de Automações</h3>
-                    <p>Automatizações usadas por times globais para governança e resposta.</p>
-                </div>
-            </a>
-
-            <a href="./src/case_malwares.html" style="text-decoration:none; color:inherit;">
-                <div class="card">
-                    <img src="./img/shield.png">
-                    <h3>Ferramentas & Payloads</h3>
-                    <p>Malwares, scripts, módulos e artefatos para estudos avançados.</p>
-                </div>
-            </a>
-        </div>
-		
-		<br><hr><br>
-		
-		<!-- NOVA SEÇÃO: CASES DE USO -->
-        <h2>Projetos</h2>
-		
-		<div class="cards">
-			<a href="./src/projeto_threathunting.html" style="text-decoration:none; color:inherit;">
-				<div class="card">
-					<img src="./img/shield.png">
-					<h3>Hunting & Detection</h3>
-					<p>Detecções personalizadas, análises e queries para SIEM/EDR.</p>
-				</div>
-			</a>
-
-			<a href="./src/projeto_automacao.html" style="text-decoration:none; color:inherit;">
-				<div class="card">
-					<img src="./img/shield.png">
-					<h3>Automações</h3>
-					<p>Ferramentas desenvolvidas para reduzir trabalho manual e fortalecer governança.</p>
-				</div>
-			</a>
-
-			<a href="./src/projeto_malwarelab.html" style="text-decoration:none; color:inherit;">
-				<div class="card">
-					<img src="./img/shield.png">
-					<h3>Malware & Red Team Lab</h3>
-					<p>RATs, payloads, scripts e experimentos avançados em laboratório.</p>
-				</div>
-			</a>
-		</div>
-
-    </div>
 </body>
 </html>

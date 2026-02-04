@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim | GSA Security</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { color-scheme: dark; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        .scanline::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, transparent, rgba(16, 185, 129, 0.05), transparent);
+            z-index: 50;
+            pointer-events: none;
+            animation: scanline 6s linear infinite;
+        }
+        .badge {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #10b981;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body class="scanline overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-[100] transition-all duration-500 bg-transparent py-8">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-[0_0_20px_rgba(16,185,129,0.2)] group-hover:scale-110 transition-transform">G</div>
+                <span class="font-mono text-xl font-bold tracking-tighter uppercase">GSA<span class="text-emerald-500">SEC</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-10 font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400">
+                <a href="../index.html#incident" class="hover:text-emerald-400 transition-colors">Incidentes</a>
+                <a href="../index.html#automation" class="hover:text-emerald-400 transition-colors">Automação</a>
+                <a href="cases.html" class="hover:text-emerald-400 transition-colors">Cases</a>
+                <a href="sobre.html" class="text-emerald-400 font-bold">Sobre Mim</a>
+                <a href="#contact" class="px-6 py-2 border border-emerald-500/50 rounded-full text-emerald-400 hover:bg-emerald-500/10 transition-all font-bold">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-40 pb-32">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-16">
+                <!-- Profile Summary -->
+                <div class="lg:col-span-8">
+                    <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/20 text-emerald-500 text-[10px] font-mono mb-10 tracking-widest uppercase">
+                        Cyber Security Consultant
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-10 leading-tight">
+                        Giovanni S. Alves
+                    </h1>
+                    <div class="space-y-8 text-slate-400 text-lg leading-relaxed font-light max-w-3xl">
+                        <p>
+                            Especialista em Segurança da Informação com foco em análise, detecção e resposta a incidentes em ambientes multinacionais. Tenho experiência prática identificando falhas críticas, corrigindo gaps de visibilidade em SIEM e conduzindo investigações complexas envolvendo ransomware, possíveis vazamentos, hacktivismo e atividades avançadas de ameaça.
+                        </p>
+                        <p>
+                            Desenvolvo automações que aprimoram governança e reduzem esforço operacional, incluindo relatórios inteligentes de software non-compliance utilizados pela liderança para tomada de decisão. Atuo diariamente com threat hunting, análise técnica profunda, correlação de eventos e identificação de vulnerabilidades e Shadow IT.
+                        </p>
+                        <p>
+                            Trabalho orientado a impacto, precisão técnica e fortalecimento contínuo da postura de segurança dos ambientes que protejo.
+                        </p>
+                    </div>
+
+                    <div class="mt-16">
+                        <h2 class="text-xs font-mono text-emerald-500 uppercase tracking-[0.6em] mb-8">Credenciais & Certificações</h2>
+                        <div class="flex flex-wrap gap-4">
+                            <span class="badge">CySA+</span>
+                            <span class="badge">Security+</span>
+                            <span class="badge">CSAP</span>
+                            <span class="badge">CEH Master</span>
+                            <span class="badge">Incident Response (DFIR)</span>
+                            <span class="badge">Threat Hunting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Sidebar -->
+                <div class="lg:col-span-4">
+                    <div class="glass-panel p-10 rounded-[2.5rem] sticky top-32">
+                        <h3 class="text-2xl font-bold mb-8">Contato Direto</h3>
+                        <div class="space-y-10">
+                            <div>
+                                <p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-3">Email</p>
+                                <a href="mailto:giovanni33316@gmail.com" class="text-emerald-400 font-mono text-sm hover:underline">giovanni33316@gmail.com</a>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-3">LinkedIn</p>
+                                <a href="https://www.linkedin.com/in/giovanni-s-alves" target="_blank" class="text-emerald-400 font-mono text-sm hover:underline">linkedin.com/in/giovanni-s-alves</a>
+                            </div>
+                            <div class="pt-10 border-t border-white/5">
+                                <a href="../index.html" class="flex items-center gap-3 text-white group hover:text-emerald-400 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                                    <span class="font-bold">Voltar ao Início</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-3 mb-10 opacity-40">
+                <div class="w-8 h-8 bg-emerald-600 rounded flex items-center justify-center font-bold text-sm text-white">G</div>
+                <span class="font-mono text-sm font-bold tracking-tighter uppercase">GSA<span class="text-emerald-500">SEC</span></span>
+            </div>
+            <p class="text-[10px] font-mono text-slate-600 uppercase tracking-[0.5em] mb-4">
+                &copy; 2026 GSASEC // Defesa Cibernética de Elite
+            </p>
+        </div>
+    </footer>
+
+    <script src="./index.js"></script>
+</body>
+</html>

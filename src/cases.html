@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cases de Investigação | GSA Security</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { color-scheme: dark; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            color: #f8fafc;
+        }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+        .scanline::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(to right, transparent, rgba(16, 185, 129, 0.05), transparent);
+            z-index: 50;
+            pointer-events: none;
+            animation: scanline 6s linear infinite;
+        }
+    </style>
+</head>
+<body class="scanline overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-[100] transition-all duration-500 bg-transparent py-8">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center font-bold text-xl shadow-[0_0_20px_rgba(16,185,129,0.2)] group-hover:scale-110 transition-transform">G</div>
+                <span class="font-mono text-xl font-bold tracking-tighter uppercase">GSA<span class="text-emerald-500">SEC</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-10 font-mono text-[10px] uppercase tracking-[0.3em] text-slate-400">
+                <a href="../index.html#incident" class="hover:text-emerald-400 transition-colors">Incidentes</a>
+                <a href="../index.html#automation" class="hover:text-emerald-400 transition-colors">Automação</a>
+                <a href="cases.html" class="text-emerald-400 font-bold">Cases</a>
+                <a href="sobre.html" class="hover:text-emerald-400 transition-colors">Sobre Mim</a>
+                <a href="#contact" class="px-6 py-2 border border-emerald-500/50 rounded-full text-emerald-400 hover:bg-emerald-500/10 transition-all font-bold">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-40 pb-32">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mb-24">
+                <h2 class="text-xs font-mono text-emerald-500 uppercase tracking-[0.6em] mb-4">Investigações Técnicas</h2>
+                <h1 class="text-5xl md:text-7xl font-bold mb-10 leading-tight italic uppercase tracking-tighter">Cases de <span class="text-emerald-500">Investigação.</span></h1>
+                <p class="text-slate-400 text-lg md:text-xl leading-relaxed font-light">
+                    Aqui estão alguns estudos reais envolvendo detecção, análise forense e resposta a incidentes — cada case inclui o PDF original para consulta técnica detalhada.
+                </p>
+            </div>
+
+            <div class="grid gap-10">
+                <!-- Case 1 -->
+                <div class="glass-panel p-10 md:p-14 rounded-[3rem] group hover:border-emerald-500/40 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                        <div class="max-w-2xl">
+                            <div class="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono mb-6 uppercase tracking-widest">
+                                Malware Analysis
+                            </div>
+                            <h3 class="text-3xl font-bold mb-6 text-white group-hover:text-emerald-400 transition-colors">Detecção de Malware Bancário Metamorfo</h3>
+                            <p class="text-slate-400 leading-relaxed mb-8">
+                                Processo completo de identificação inicial, correlação de eventos, análise de endpoint e confirmação de atividade maliciosa envolvendo o malware Metamorfo.
+                            </p>
+                        </div>
+                        <a href="../pdfs/Metamorfo.pdf" class="flex items-center gap-4 px-8 py-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all group/btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            <span class="font-bold text-sm tracking-widest uppercase">Abrir PDF</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="glass-panel p-10 md:p-14 rounded-[3rem] group hover:border-emerald-500/40 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                        <div class="max-w-2xl">
+                            <div class="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono mb-6 uppercase tracking-widest">
+                                Phishing Response
+                            </div>
+                            <h3 class="text-3xl font-bold mb-6 text-white group-hover:text-emerald-400 transition-colors">RAT executado via phishing</h3>
+                            <p class="text-slate-400 leading-relaxed mb-8">
+                                Investigação de execução remota de RAT após download de arquivo malicioso enviado por spear phishing. Detecção de beaconing e isolamento de hosts.
+                            </p>
+                        </div>
+                        <a href="../pdfs/rat.pdf" class="flex items-center gap-4 px-8 py-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all group/btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            <span class="font-bold text-sm tracking-widest uppercase">Abrir PDF</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="glass-panel p-10 md:p-14 rounded-[3rem] group hover:border-emerald-500/40 transition-all duration-500">
+                    <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                        <div class="max-w-2xl">
+                            <div class="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-[10px] font-mono mb-6 uppercase tracking-widest">
+                                Drive-by Compromise
+                            </div>
+                            <h3 class="text-3xl font-bold mb-6 text-white group-hover:text-emerald-400 transition-colors">Ataque de FakeCaptcha</h3>
+                            <p class="text-slate-400 leading-relaxed mb-8">
+                                Análise completa de acesso irregular, exploração via fake captcha e cadeia de execução que levou ao comprometimento inicial do sistema.
+                            </p>
+                        </div>
+                        <a href="../pdfs/FakeCaptcha.pdf" class="flex items-center gap-4 px-8 py-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-emerald-500/10 hover:border-emerald-500/50 transition-all group/btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            <span class="font-bold text-sm tracking-widest uppercase">Abrir PDF</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 pt-20 border-t border-white/5 flex justify-center">
+                 <a href="index.html" class="flex items-center gap-3 text-white group hover:text-emerald-400 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    <span class="font-bold uppercase tracking-widest text-xs">Voltar ao Início</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-3 mb-10 opacity-40">
+                <div class="w-8 h-8 bg-emerald-600 rounded flex items-center justify-center font-bold text-sm text-white">G</div>
+                <span class="font-mono text-sm font-bold tracking-tighter uppercase">GSA<span class="text-emerald-500">SEC</span></span>
+            </div>
+            <p class="text-[10px] font-mono text-slate-600 uppercase tracking-[0.5em] mb-4">
+                &copy; 2026 GSASEC // Defesa Cibernética de Elite
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
