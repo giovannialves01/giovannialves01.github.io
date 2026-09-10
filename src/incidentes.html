@@ -1,150 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cases de Investigação - Giovanni Alves</title>
-
-	<script src="../js/main.js"></script>
-
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WGSJJ6R80P"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-WGSJJ6R80P');
-	</script>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0d0d0d;
-            color: #ffffff;
-            display: flex;
-        }
-
-        .sidebar {
-            width: 260px;
-            background: #111;
-            padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            border-right: 2px solid #1f1f1f;
-        }
-
-        .sidebar h2 {
-            margin-top: 0;
-        }
-
-        .sidebar a {
-            color: #4db8ff;
-            text-decoration: none;
-            padding: 8px 0;
-            display: block;
-        }
-
-        .content {
-            flex: 1;
-            padding: 40px;
-            overflow-y: auto;
-        }
-
-        h1, h2 {
-            margin-top: 0;
-        }
-
-        .case {
-            background: #001f3f;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            box-shadow: 0 0 12px rgba(0,0,0,0.45);
-        }
-
-        .case h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .case a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 14px;
-            background: #004a99;
-            border-radius: 8px;
-            color: #4db8ff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .case a:hover {
-            background: #0066cc;
-        }
-
-        .cert-grid img {
-            border-radius: 6px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cases de investigação | GSASEC</title>
+  <meta name="description" content="O conteúdo foi reunido na página principal de Cases de investigação.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#020617">
+  <link rel="canonical" href="https://gsasec.com.br/src/cases.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/site.css">
+  <script src="../js/redirect.js" defer></script>
+  <noscript><meta http-equiv="refresh" content="0; url=cases.html"></noscript>
 </head>
-
-<body>
-
-    <div class="sidebar">
-        <h2>Menu</h2>
-        <a href="../index.html">🏠 Voltar ao Portfólio</a>
-        <a href="#cases">Cases de Investigação</a>
-
-        <h2>Certificados</h2>
-        <ul style="list-style:none; padding:0; margin-top:10px; display:grid; grid-template-columns: repeat(2, 1fr); gap:10px;" class="cert-grid">
-            <li><img src="../img/cehv13.webp" alt="CEH v13" width="80"></li>
-            <li><img src="../img/ceh_practical.png" alt="CEH Practical" width="80"></li>
-            <li><img src="../img/ceh_master.png" alt="CEH Master" width="80"></li>
-            <li><img src="../img/securityplus.png" alt="Security+" width="80"></li>
-			<li><img src="../img/CSAP.png" alt="CEH Master" width="80"></li>
-            <li><img src="../img/cysa.png" alt="Security+" width="80"></li>
-        </ul>
-
-        <h2>Sobre Mim</h2>
-        <p style="font-size:14px; line-height:1.4;">
-            Cyber Security Consultant | Incident Response (DFIR) & Threat Hunting | CySA+, Security+, CSAP, CEH Master<br><br>
-            Email: giovanni33316@gmail.com
-        </p>
-    </div>
-
-    <div class="content">
-        <h1>Cases de Investigação</h1>
-        <p>Aqui estão alguns estudos reais envolvendo detecção, análise forense e resposta a incidentes — cada case inclui o PDF original para consulta.</p>
-
-        <section id="cases">
-
-            <!-- CASE 1 -->
-            <div class="case">
-                <h3>📌 Detecção de Malware Bancário Metamorfo</h3>
-                <p>Processo completo de identificação inicial, correlação de eventos, análise de endpoint e confirmação de atividade maliciosa envolvendo o malware Metamorfo.</p>
-                <a href="../pdfs/Metamorfo.pdf" target="_blank">📄 Abrir PDF</a>
-            </div>
-
-            <!-- CASE 2 -->
-            <div class="case">
-                <h3>📌 RAT executado via phishing</h3>
-                <p>Investigação de execução remota de RAT após download de arquivo malicioso enviado por spear phishing.</p>
-                <a href="../pdfs/rat.pdf" target="_blank">📄 Abrir PDF</a>
-            </div>
-
-            <!-- CASE 3 -->
-            <div class="case">
-                <h3>📌 Ataque de FakeCaptcha (Drive-by Compromise)</h3>
-                <p>Análise completa de acesso irregular, exploração via fake captcha e cadeia de execução que levou ao comprometimento inicial.</p>
-                <a href="../pdfs/FakeCaptcha.pdf" target="_blank">📄 Abrir PDF</a>
-            </div>
-
-        </section>
-
-    </div>
-
+<body data-redirect="cases.html">
+  <main id="main" class="container redirect-main">
+    <p class="eyebrow">GSASEC</p>
+    <h1>Cases de investigação</h1>
+    <p>Este conteúdo está em uma nova página.</p>
+    <p><a class="button button-primary" href="cases.html">Acessar Cases de investigação</a></p>
+    <p><a href="mailto:giovanni33316@gsasec.com.br">giovanni33316@gsasec.com.br</a> · <a href="https://www.linkedin.com/in/giovanni-s-alves/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+  </main>
 </body>
 </html>

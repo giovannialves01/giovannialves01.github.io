@@ -2,19 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gsasec.com.br/</loc>
-    <lastmod>2024-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-   <url>
-    <loc>https://gsasec.com.br/cases.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-09-09</lastmod>
   </url>
   <url>
-    <loc>https://gsasec.com.br/sobre.html</loc>
-    <lastmod>2024-05-20</lastmod>
-    <priority>0.8</priority>
+    <loc>https://gsasec.com.br/src/cases.html</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://gsasec.com.br/src/sobre.html</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://gsasec.com.br/src/projeto_automacao.html</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://gsasec.com.br/src/projeto_threathunting.html</loc>
+    <lastmod>2026-09-09</lastmod>
+  </url>
+  <url>
+    <loc>https://gsasec.com.br/src/projeto_malwarelab.html</loc>
+    <lastmod>2026-09-09</lastmod>
   </url>
 </urlset>
