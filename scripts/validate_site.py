@@ -39,10 +39,6 @@ class Page(HTMLParser):
     def canonical(self):
         return next((a.get("href") for a in self.elements("link") if a.get("rel") == "canonical"), None)
 
-    @property
-    def redirect(self):
-        return next((a["data-redirect"] for a in self.elements("body") if "data-redirect" in a), None)
-
 
 def main():
     args = argparse.ArgumentParser(description=__doc__)
@@ -93,7 +89,7 @@ def main():
             if anchor.get("target") == "_blank":
                 check({"noopener", "noreferrer"} <= set(anchor.get("rel", "").split()), f"{name}: external link rel missing")
         for tag, attrs in page.tags:
-            for attr in ("href", "src", "data-redirect"):
+            for attr in ("href", "src"):
                 if attr not in attrs:
                     continue
                 target, fragment = resolve(page, attrs[attr])
@@ -111,16 +107,11 @@ def main():
             for attr in ("aria-controls", "aria-labelledby", "aria-describedby"):
                 for identifier in attrs.get(attr, "").split():
                     check(identifier in page.ids, f"{name}: missing ARIA target {identifier}")
-        if page.redirect:
-            target, _ = resolve(page, page.redirect)
-            check(target in pages and not pages[target].redirect, f"{name}: redirect chain or missing target")
-            check(any(a.get("name") == "robots" and "noindex" in a.get("content", "") for a in page.elements("meta")), f"{name}: alias should be noindex")
-        else:
-            expected = ORIGIN + ("" if name == "index.html" else name)
-            check(page.canonical == expected, f"{name}: canonical does not match route")
-            for field in ("og:title", "og:description", "og:url", "og:type"):
-                check(any(a.get("property") == field and a.get("content") for a in page.elements("meta")), f"{name}: missing {field}")
-            check(any(a.get("src", "").split("?")[0].endswith("js/main.js") and "defer" in a for a in page.elements("script")), f"{name}: shared JS missing")
+        expected = ORIGIN + ("" if name == "index.html" else name)
+        check(page.canonical == expected, f"{name}: canonical does not match route")
+        for field in ("og:title", "og:description", "og:url", "og:type"):
+            check(any(a.get("property") == field and a.get("content") for a in page.elements("meta")), f"{name}: missing {field}")
+        check(any(a.get("src", "").split("?")[0].endswith("js/main.js") and "defer" in a for a in page.elements("script")), f"{name}: shared JS missing")
 
     reachable = set()
     pending = [(ROOT / "index.html").resolve()]
@@ -129,7 +120,7 @@ def main():
         if page not in reachable:
             reachable.add(page)
             pending.extend(graph[page] - reachable)
-    public_pages = {path for path, page in pages.items() if not page.redirect}
+    public_pages = set(pages)
     check(public_pages <= reachable, "Some public pages cannot be reached from the home page")
     sitemap = ET.parse(ROOT / "sitemap.xml")
     locations = [item.text for item in sitemap.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
@@ -149,7 +140,7 @@ def main():
         print("FAIL:", error)
     if errors:
         raise SystemExit(1)
-    print(f"PASS: {len(pages)} HTML pages, {len(public_pages)} public routes, {len(pages) - len(public_pages)} redirects; links, anchors, assets, contacts, accessibility references, SEO and sitemap.")
+    print(f"PASS: {len(pages)} public HTML pages; links, anchors, assets, contacts, accessibility references, SEO and sitemap.")
     if options.base_url:
         print(f"PASS: HTTP checks for {len(refs | {ROOT / 'robots.txt', ROOT / 'sitemap.xml'})} local resources.")
 

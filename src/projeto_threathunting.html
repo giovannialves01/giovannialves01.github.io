@@ -20,14 +20,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/site.css?v=20261008-dfir">
   <script src="../js/main.js?v=20260909" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Pular para o conteúdo</a>
 <header class="site-header" id="top">
   <div class="container header-inner">
-    <a class="brand" href="../index.html" aria-label="GSASEC — início"><span class="brand-mark" aria-hidden="true">G</span><span>GSA<span class="brand-accent">SEC</span></span></a>
+    <a class="brand" href="../index.html" aria-label="GSASEC — início"><span>GSA<span class="brand-accent">SEC</span></span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Abrir menu de navegação" hidden>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span data-menu-label>Menu</span>
     </button>
@@ -42,21 +42,73 @@
     </nav>
   </div>
 </header>
-<main id="main" class="page-main" tabindex="-1"><div class="container">
-  <div class="page-heading"><p class="eyebrow">Hunting &amp; Detection</p><h1>Engenharia de <em>detecção.</em></h1><p class="lead">Casos, metodologias e detecções voltados à identificação de atividades maliciosas, comportamento atípico e ameaças avançadas.</p></div>
-  <nav class="project-nav" aria-label="Áreas do portfólio"><a href="cases.html">Investigações</a><a href="projeto_automacao.html">Automações</a><a href="projeto_threathunting.html" aria-current="page">Threat Hunting</a><a href="projeto_malwarelab.html">Laboratório</a></nav>
-  <section id="hunting" class="grid grid-two" aria-label="Estudos de threat hunting">
-    <article class="card"><span class="tag">Persistência</span><h2>Threat Hunting de Atividade Persistente</h2><p>Caça manual e automatizada de atividade do tipo APT, focada em persistência discreta, uso de LOLBins, IFEO, anomalias em WMI e serviços suspeitos.</p><div class="actions"><span class="content-unavailable">Documentação e técnicas · Conteúdo em preparação</span></div></article>
-    <article class="card"><span class="tag">Túneis reversos</span><h2>Detecção de Ngrok, Cloudflared e LocalXpose</h2><p>Criação de casos de uso para detectar beaconing, baixos volumes persistentes e fingerprints de túneis reversos usados por atacantes.</p><div class="actions"><span class="content-unavailable">Caso de uso e regra Sigma · Conteúdo em preparação</span></div></article>
-    <article class="card"><span class="tag">Acesso a credenciais</span><h2>Identificação de Credential Dumping</h2><p>Regras e correlações para Mimikatz, padrões de acesso ao LSASS, MiniDumpWriteDump e anomalias envolvendo PPL Bypass.</p><div class="actions"><span class="content-unavailable">Documento e regras YARA / Sigma · Conteúdo em preparação</span></div></article>
-    <article class="card"><span class="tag">Movimentação lateral</span><h2>Detection Engineering para Movimentação Lateral</h2><p>Detecções envolvendo abuso de SMB, criação remota de serviços, uso indevido de WinRM, PsExec e execuções remotas suspeitas.</p><div class="actions"><span class="content-unavailable">Guia, regras e scripts · Conteúdo em preparação</span></div></article>
-  </section>
-  <a class="back-link" href="../index.html#projects">← Voltar ao portfólio</a>
-</div></main>
+<main id="main" class="page-main" tabindex="-1">
+  <div class="container">
+    <div class="page-heading">
+      <p class="eyebrow">Engenharia de detecção</p>
+      <h1>Threat hunting</h1>
+      <p class="lead">Casos, metodologias e detecções voltados à identificação de atividades maliciosas, comportamento atípico e ameaças avançadas.</p>
+    </div>
+    <nav class="project-nav" aria-label="Áreas do portfólio"><a href="cases.html">Investigações</a>
+        <a href="projeto_automacao.html">Automações</a>
+        <a href="projeto_threathunting.html" aria-current="page">Threat Hunting</a>
+        <a href="projeto_malwarelab.html">Laboratório</a></nav>
+    <section id="hunting" class="portfolio-list" aria-label="Estudos de threat hunting">
+      <article class="portfolio-entry">
+        <p class="entry-type">Persistência</p>
+        <div class="entry-body">
+          <h2>Threat Hunting de Atividade Persistente</h2>
+          <p>Caça manual e automatizada de atividade do tipo APT, focada em persistência discreta, uso de LOLBins, IFEO, anomalias em WMI e serviços suspeitos.</p>
+        </div>
+        <div class="entry-actions">
+          <span class="content-unavailable">Documentação e técnicas · Conteúdo em preparação</span>
+        </div>
+      </article>
+      <article class="portfolio-entry">
+        <p class="entry-type">Túneis reversos</p>
+        <div class="entry-body">
+          <h2>Detecção de Ngrok, Cloudflared e LocalXpose</h2>
+          <p>Criação de casos de uso para detectar beaconing, baixos volumes persistentes e fingerprints de túneis reversos usados por atacantes.</p>
+        </div>
+        <div class="entry-actions">
+          <span class="content-unavailable">Caso de uso e regra Sigma · Conteúdo em preparação</span>
+        </div>
+      </article>
+      <article class="portfolio-entry">
+        <p class="entry-type">Acesso a credenciais</p>
+        <div class="entry-body">
+          <h2>Identificação de Credential Dumping</h2>
+          <p>Regras e correlações para Mimikatz, padrões de acesso ao LSASS, MiniDumpWriteDump e anomalias envolvendo PPL Bypass.</p>
+        </div>
+        <div class="entry-actions">
+          <span class="content-unavailable">Documento e regras YARA / Sigma · Conteúdo em preparação</span>
+        </div>
+      </article>
+      <article class="portfolio-entry">
+        <p class="entry-type">Movimentação lateral</p>
+        <div class="entry-body">
+          <h2>Detection Engineering para Movimentação Lateral</h2>
+          <p>Detecções envolvendo abuso de SMB, criação remota de serviços, uso indevido de WinRM, PsExec e execuções remotas suspeitas.</p>
+        </div>
+        <div class="entry-actions">
+          <span class="content-unavailable">Guia, regras e scripts · Conteúdo em preparação</span>
+        </div>
+      </article>
+    </section>
+    <a class="back-link" href="../index.html#projects">Voltar ao portfólio</a>
+  </div>
+</main>
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div><a class="brand" href="../index.html" aria-label="GSASEC — início"><span class="brand-mark" aria-hidden="true">G</span><span>GSA<span class="brand-accent">SEC</span></span></a><p class="footer-copy">© 2026 GSASEC · Defesa Cibernética de Elite</p></div>
-    <div class="footer-links"><a href="mailto:giovanni33316@gsasec.com.br">Email</a><a href="https://www.linkedin.com/in/giovanni-s-alves/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (abre em nova aba)</span></a><a href="#top">Voltar ao topo</a></div>
+    <div class="footer-signature">
+      <a class="brand" href="../index.html" aria-label="GSASEC — início"><span>GSA<span class="brand-accent">SEC</span></span></a>
+      <p class="footer-copy">© 2026 · Giovanni S. Alves</p>
+    </div>
+    <div class="footer-links">
+      <a href="mailto:giovanni33316@gsasec.com.br">Email</a>
+      <a href="https://www.linkedin.com/in/giovanni-s-alves/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (abre em nova aba)</span></a>
+      <a href="#top">Voltar ao topo</a>
+    </div>
   </div>
 </footer>
 </body>

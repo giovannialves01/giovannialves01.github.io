@@ -22,20 +22,10 @@ Abra http://127.0.0.1:8765/ e use Ctrl+C para encerrar o servidor.
 - `src/sobre.html`: biografia, certificações e contato.
 - `css/site.css`: estilos compartilhados e responsividade.
 - `js/main.js`: menu acessível e analytics, carregado apenas no domínio de produção.
-- `js/redirect.js`: compatibilidade com endereços antigos, inclusive âncoras dos serviços.
 
-O cabeçalho e o rodapé são HTML estático em cada página, para manter a navegação disponível mesmo sem JavaScript. Ao mudar um item do menu ou um contato, atualize as seis páginas principais e os contatos nas páginas de compatibilidade. Atualize o parâmetro de versão do `main.js` quando modificar esse arquivo, evitando caches antigos no navegador.
+O cabeçalho e o rodapé são HTML estático em cada página, para manter a navegação disponível mesmo sem JavaScript. Ao mudar um item do menu ou um contato, atualize as seis páginas principais. Atualize o parâmetro de versão do `main.js` quando modificar esse arquivo, evitando caches antigos no navegador.
 
-### Endereços antigos
-
-| Página antiga | Destino |
-| --- | --- |
-| `src/incidentes.html` | `src/cases.html` |
-| `src/case_automacoes.html` | `src/projeto_automacao.html` |
-| `src/case_malwares.html` | `src/projeto_malwarelab.html` |
-| `src/servicos.html` | `index.html#services` |
-
-Os redirecionamentos usam `location.replace`, com alternativa HTML para navegação sem JavaScript. Somente as seis páginas principais entram no sitemap. Os arquivos dos relatórios e as imagens originais permanecem em `pdfs/` e `img/`.
+O site contém somente as seis páginas principais, todas listadas no sitemap. As páginas antigas de compatibilidade foram removidas; seus endereços passam a retornar 404 após a publicação. Os arquivos dos relatórios e as imagens originais permanecem em `pdfs/` e `img/`.
 
 ### Materiais em preparação
 
@@ -47,12 +37,11 @@ Quando não houver material publicado, use um `<span class="content-unavailable"
 python scripts/validate_site.py
 python scripts/validate_site.py --base-url http://127.0.0.1:8765/
 node --check js/main.js
-node --check js/redirect.js
 ```
 
 O validador usa apenas a biblioteca padrão do Python. Verifica rotas, links locais, âncoras, arquivos, contatos, metadados, sitemap e referências de acessibilidade. A opção `--base-url` também verifica os recursos por HTTP; não testa sites externos.
 
-Antes de publicar, confira as seis páginas em desktop, tablet e celular; abra o menu, navegue por teclado, feche com Escape e verifique os redirecionamentos antigos. Atualize `lastmod` no sitemap quando o conteúdo mudar.
+Antes de publicar, confira as seis páginas em desktop, tablet e celular; abra o menu, navegue por teclado e feche com Escape. Atualize `lastmod` no sitemap quando o conteúdo mudar.
 
 ## Publicação
 
