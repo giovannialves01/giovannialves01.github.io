@@ -40,9 +40,11 @@
 
     // Keep preview visits out of production analytics. /index.html is replaced
     // with / from the home page head; skip the hit if that navigation is still
-    // in flight so the filename URL is not recorded as a second page.
+    // in flight so the filename URL is not recorded as a second page. The 404
+    // page is served at the missing address, so it must not be counted either.
     const onIndexFilename = /^\/index\.html$/i.test(window.location.pathname);
-    if (!onIndexFilename && ["gsasec.com.br", "www.gsasec.com.br"].includes(window.location.hostname)) {
+    const notFound = document.documentElement.dataset.page === "404";
+    if (!onIndexFilename && !notFound && ["gsasec.com.br", "www.gsasec.com.br"].includes(window.location.hostname)) {
         window.dataLayer = window.dataLayer || [];
         window.gtag = function () { window.dataLayer.push(arguments); };
         window.gtag("js", new Date());
