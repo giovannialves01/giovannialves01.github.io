@@ -38,8 +38,11 @@
         syncViewport();
     }
 
-    // Keep preview visits out of production analytics.
-    if (["gsasec.com.br", "www.gsasec.com.br"].includes(window.location.hostname)) {
+    // Keep preview visits out of production analytics. /index.html is replaced
+    // with / from the home page head; skip the hit if that navigation is still
+    // in flight so the filename URL is not recorded as a second page.
+    const onIndexFilename = /^\/index\.html$/i.test(window.location.pathname);
+    if (!onIndexFilename && ["gsasec.com.br", "www.gsasec.com.br"].includes(window.location.hostname)) {
         window.dataLayer = window.dataLayer || [];
         window.gtag = function () { window.dataLayer.push(arguments); };
         window.gtag("js", new Date());
